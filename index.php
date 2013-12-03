@@ -7,6 +7,18 @@ list based on age of meme or most liked.
 *********************************/
 session_start();
 
+require_once("includes/db.inc.php");
+
+
+if (!isset($_SESSION["SortType"]))
+{
+	$_SESSION["SortType"] = "most_liked";
+}
+
+
+
+
+
 
 ?><!doctype html>
 <html>
