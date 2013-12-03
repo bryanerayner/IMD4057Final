@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/* CSS Document */
+/************************
+	DEFAULTS
+************************/
+*{
+	padding:0;
+	margin:0;	
+}
+body{
+	font-size:62.5%;	
+	line-height:1.5;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+h1{
+	font-size:4.0rem;
+	line-height:1.0;
+	padding: 2.0rem 3rem;
+}
+h2{
+	font-size:3.0rem;
+	line-height:1.0;
+	padding: 1.5rem 3rem;
+}
+h3{
+	font-size:2.0rem;
+	line-height:2.0;
+	padding: 1.5rem 3rem;
+}
+p{
+	font-size:1.5rem;
+	padding: 1.0rem 3rem;
+}
+ul, ol{
+	padding: 1.0rem 3.0rem;	
+}
+li{
+	font-size:1.5rem;
+}
+a{
+	font-size:1.5rem;
+}
+/************************
+	LAYOUT
+************************/
+
+.wrapper{
+	width:80%;
+	margin:1.0rem auto;
+}
+.masthead{
+	
+}
+.nav{
+	overflow:hidden;
+}
+.main{
+	clear:both;
+}
+.footer{
+	clear:both;
+	background-color: #ddd;
+}
+
+/************************
+	NAVIGATION
+************************/
+.mainnav{
+	list-style:none;
+	padding:0;
+}
+.mainnav>li{
+	float:left;
+	width: 33.333%;
+}
+.mainnav>li>a,
+.mainnav>li>a:link,
+.mainnav>li>a:visited{
+	display:block;
+	background-color:#999;
+	padding: 0.5rem 3.0rem;
+	text-decoration:none;
+	color:#fff;
+	font-weight:bold
+}
+.mainnav>li>a:active,
+.mainnav>li>a:hover{
+	text-decoration:underline;
+	background-color:#333;	
+}
+
+/************************
+	CONTENT
+************************/
+.footer>p{
+	font-size: 1.0rem;	
+}
+.likes{
+	display: block;
+	float:right;
+	font-size: 1.2rem;
+}
+.likes:after{
+	display:inline-block;
+	content: " \00a0 likes";
+}
+/************************
+	IMAGE RELATED
+************************/
+
+.memes>li{
+	width: 22%;
+	float: left;
+	margin: 1% 1.0rem;
+	list-style:none;
+}
+.memes img{
+	width: 90%;
+	height: 90%;
+	padding: 5%;
+	background-color: #ddd;
+}
+.memes .icon{
+	display:block;
+	float:left;
+	padding: 0 15px 5px 55px;
+	background-position: 15px center;
+	background-repeat:no-repeat;
+}
+.memes .like{
+	background-image: url('../img/like.png');
+	font-size: 1.2rem;
+	font-weight:bold;
+	cursor:pointer;
+}
+.memes time{
+	display:block;
+	clear:both;
+	font-size: 1.2rem;
+	padding-left: 15px;
+	text-align:right;
+}
+.memes>li>a{
+	font-size: 1.2rem;
+	font-weight:bold;
+}
+form img{
+	margin: 1rem 3rem 1rem 18rem;
+	width: 20rem;
+}
+
+/************************
+	FORMS
+************************/
+form{
+	padding:1.0rem 3.0rem;	
+}
+.formbox{
+	clear:both;
+	padding:0.5rem 1.0rem;
+}
+.buttons{
+	margin-left:17rem;
+}
+label{
+	float:left;
+	width: 15rem;
+	margin-left: 2rem;
+	font-size: 1.5rem;
+}
+input[type=text]{
+	width: 20rem;
+	font-size: 1.5rem;
+}
+input[type=submit]{
+	width:auto;
+	font-size: 1.5rem;
+}
+

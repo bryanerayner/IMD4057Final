@@ -1,0 +1,1 @@
+<p>&copy; Squid Inc 2013</p>
