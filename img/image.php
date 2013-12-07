@@ -1,5 +1,9 @@
 <?php
 
+require_once("../includes/db.inc.php");
+require_once("../includes/mime.inc.php");
+
+
 //image.php
 function scaleText( $msg, $w, $txtImg ){
 	$words = explode(" ", $msg);
@@ -23,14 +27,14 @@ function scaleText( $msg, $w, $txtImg ){
 	$bg = imageColorAllocateAlpha($txtImg, 0, 0, 0, 127); //transparent
 	$color = imageColorAllocate($txtImg, 255, 255, 255);	//white
 	
-	return array("msg"=>$msg, "fontsize"=>$fontsize, "color"=>$color, "img"=>$txtImg);
+	return array("msg"=>$msg, "fontHeight"=>$pixelPer, "fontsize"=>$fontsize, "color"=>$color, "img"=>$txtImg);
 }
 
 $filename = "../images-memes/missing.png";
 
 $topText = "";
 $bottomText = "";
-
+$ext = "";
 
 if (isset($_GET["imagePath"]))
 {
@@ -84,16 +88,15 @@ if ($image)
 {
 	header("Content-Type: ".$imageInfo['mime']);
 
-	//SoMETHING HAS CHANGED HERE!!!
 	
 
 
 	$w = $imageInfo[0];
 	$h = $imageInfo[1];
 
-	$topWords = imageCreate($w, 40);
+	$topWords = imageCreate($w, $h);
 	$t = scaleText($topText, $w, $topWords);
-	$bottomWords = imageCreate($w, 40);
+	$bottomWords = imageCreate($w, $h);
 	$b = scaleText($bottomText, $w, $bottomWords);
 
 	$font = "arial.ttf";
@@ -106,7 +109,7 @@ if ($image)
 	//bottom text added to the bottom text image
 	imagefttext($b['img'], $b['fontsize'], $angle, 5, ($b['fontsize'] + 5), $b['color'], $font, $b['msg']);
 	//add the bottom text image to the image which will be returned
-	imageCopy($image, $b['img'], 0, ($h-40), 0, 0, imagesx($b['img']), imagesy($b['img']) );
+	imageCopy($image, $b['img'], 0, ($h-($b['fontHeight'] * 1.5)-10), 0, 0, imagesx($b['img']), imagesy($b['img']) );
 
 
 	switch ($imageInfo["mime"])

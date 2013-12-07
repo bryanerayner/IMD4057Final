@@ -13,4 +13,6 @@ $dbhost = "localhost";
 // $dbhost = "localhost";
 
 $pdo = new PDO("mysql:host=". $dbhost . ";dbname=" . $dbname, $dbuser, $dbpass ) or exit();
+
+
 ?>

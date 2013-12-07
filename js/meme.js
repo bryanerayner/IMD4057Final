@@ -3,6 +3,14 @@
 $(document).ready(init);
 
 function init(){
+
+
+	//Use isotope layout on the memes.
+	// $("ul.memes.fixLayout").isotope({
+	// 	itemSelector:"li",
+	// 	layoutMode:"fitRows"
+	// })
+
 	//script to run when page loads
 	
 	//If there are anchors/spans with the className "like"
@@ -12,7 +20,7 @@ function init(){
 }
 
 function submitLike(ev){
-	var meme_id = $(this).id;
+	var meme_id = $(this).attr("id");
 	meme_id = meme_id.replace("meme_","");
 	$.ajax({
 		url: 'process/like.php',
@@ -40,7 +48,7 @@ function gotReply( data ){
 			var likeCount = data.likes;
 			//This will add the count of likes into an element with the CSS classname "likes"
 			//which is inside of an element with the id "meme_##"
-			$("#meme_" + meme_id).siblings(".likes").text(likeCount);
+			$("#meme_" + meme_id).text("Liked").siblings(".likes").text(likeCount);
 			break;
 		case 100:
 			alert( msg );
@@ -60,6 +68,8 @@ function gotReply( data ){
 function badStuff( jqxhr, status, error ){
 	//runs if the AJAX call fails
 	//display a message about the failure
+	console.log(status);
+	console.log(error);
 	alert("Sorry. Unable to register your like.");
 }
 
